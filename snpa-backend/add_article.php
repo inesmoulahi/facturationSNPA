@@ -9,7 +9,7 @@ include 'config.php';
 $data = json_decode(file_get_contents("php://input"));
 
 if ($data) {
-    $code_article = $data->code_article;      // Ajouté
+    $code_article = $data->code_article;     
     $designation = $data->designation;
     $qualite = $data->qualite;
     $couleur = $data->couleur;
