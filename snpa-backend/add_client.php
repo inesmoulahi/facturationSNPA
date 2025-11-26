@@ -19,7 +19,6 @@ if (
     $adresse = mysqli_real_escape_string($conn, $data["adresse"]);
     $code_tva = mysqli_real_escape_string($conn, $data["code_tva"]);
 
-    // Génération automatique du code client
     $queryLastId = "SELECT MAX(id) AS max_id FROM clients";
     $result = mysqli_query($conn, $queryLastId);
     $row = mysqli_fetch_assoc($result);
