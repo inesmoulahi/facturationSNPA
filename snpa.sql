@@ -1,8 +1,7 @@
--- Créer base
+
 CREATE DATABASE IF NOT EXISTS snpa_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE snpa_db;
 
--- Table users
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -16,7 +15,6 @@ INSERT INTO users (nom, prenom, email, mot_de_passe, role) VALUES
 ('Admin', 'Principal', 'admin@snpa.tn', 'admin123', 'admin'),
 ('Employe', 'Test', 'employe@snpa.tn', 'employe123', 'employe');
 
--- Table clients
 CREATE TABLE clients (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -29,7 +27,6 @@ CREATE TABLE clients (
 INSERT INTO clients (nom, prenom, code_client, adresse, code_tva) VALUES
 ('Client', 'Test', 'CL001', 'Kasserine', 'TVA123456');
 
--- Table articles
 CREATE TABLE articles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     designation VARCHAR(255),
@@ -44,7 +41,6 @@ CREATE TABLE articles (
 INSERT INTO articles (designation, code_article, qualite, couleur, grammage, format, prix_unitaire) VALUES
 ('Film Plastique', 'A001', 'Standard', 'Blanc', '50g', '1x500', 120.00);
 
--- Table bon de livraison
 CREATE TABLE bon_livraison (
     id INT AUTO_INCREMENT PRIMARY KEY,
     numero_bon VARCHAR(100),
@@ -56,7 +52,6 @@ CREATE TABLE bon_livraison (
     FOREIGN KEY (client_id) REFERENCES clients(id)
 );
 
--- Table détail bon livraison
 CREATE TABLE bon_livraison_detail (
     id INT AUTO_INCREMENT PRIMARY KEY,
     bon_livraison_id INT,
@@ -67,7 +62,6 @@ CREATE TABLE bon_livraison_detail (
     FOREIGN KEY (article_id) REFERENCES articles(id)
 );
 
--- Table facture
 CREATE TABLE facture (
     id INT AUTO_INCREMENT PRIMARY KEY,
     bon_livraison_id INT,
@@ -81,7 +75,6 @@ CREATE TABLE facture (
     FOREIGN KEY (bon_livraison_id) REFERENCES bon_livraison(id)
 );
 
--- Table détail facture
 CREATE TABLE facture_detail (
     id INT AUTO_INCREMENT PRIMARY KEY,
     facture_id INT,
