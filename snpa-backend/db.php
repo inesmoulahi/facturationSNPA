@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "snpa_db"; // Mets ici le vrai nom de ta base
+$database = "snpa_db"; 
 
 $conn = mysqli_connect($host, $user, $password, $database);
 
